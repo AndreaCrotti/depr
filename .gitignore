@@ -1,0 +1,8 @@
+.cache
+.env
+__pycache__
+*.pyc
+.tox
+*.egg-info
+/.coverage
+Makefile

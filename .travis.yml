@@ -1,0 +1,13 @@
+language: python
+python:
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "pypy"
+# command to install dependencies
+install: "pip install -r requirements_test.txt"
+# command to run tests
+script: py.test -v tests.py
+
+after_success:
+    - if [[ $TRAVIS_PYTHON_VERSION != pypy* ]]; then pip install coveralls; fi

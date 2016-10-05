@@ -1,0 +1,8 @@
+[run]
+omit = *tests*
+branch = True
+source =
+       depr
+
+# [report]
+# fail_under = 96
