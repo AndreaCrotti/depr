@@ -14,7 +14,7 @@ def test_hello():
 
 @mock.patch('warnings.warn')
 def test_simple_function_deprecation(warn):
-    @depr.deprecate(msg="Should not use this anymore")
+    @depr.deprecate(reason="Should not use this anymore")
     def func():
         return 42
 
@@ -37,7 +37,7 @@ def test_deprecation_no_arguments():
 
 
 def test_simple_class_deprecation():
-    @depr.deprecate(msg="deprecated")
+    @depr.deprecate(reason="deprecated")
     class A(object):
         pass
 
