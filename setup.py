@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 package = 'depr'
-version = '0.1.5'
+version = '0.1.6'
 
 setup(name=package,
       version=version,
@@ -11,7 +11,7 @@ setup(name=package,
       author_email="andrea.crotti.0@gmail.com",
       license='MIT',
       classifiers=[
-          "Development Status :: 3 - Alpha",
+          "Development Status :: 4 - Beta",
           "License :: OSI Approved :: MIT License",
           "Programming Language :: Python",
           "Programming Language :: Python :: 2.7",
