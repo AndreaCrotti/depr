@@ -8,10 +8,6 @@ except ImportError:
 from depr import deprecate
 
 
-def test_hello():
-    assert 1 + 1 == 2
-
-
 @mock.patch('warnings.warn')
 def test_simple_function_deprecation(warn):
     @deprecate(reason="Should not use this anymore")
