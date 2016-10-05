@@ -21,7 +21,6 @@ A callable with the new function to use:
 
 
 Or just no options, and it will still raise a DeprecatationWarning using the deprecated function name:
-or just:
 
 
     @deprecate
