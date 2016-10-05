@@ -4,5 +4,5 @@ branch = True
 source =
        depr
 
-# [report]
-# fail_under = 96
+[report]
+fail_under = 100
