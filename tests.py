@@ -23,23 +23,17 @@ def test_simple_function_deprecation(warn):
     assert warn.call_args[0][0] == "Should not use this anymore"
 
 
-# TODO: make this work as well
-@pytest.mark.skip
 def test_deprecation_no_arguments():
     @depr.deprecate
     def func():
         return 42
 
+    @depr.deprecate()
+    def func2():
+        return 42
+
     assert func() == 42
-
-
-def test_no_arguments_not_supported():
-    with pytest.raises(Exception):
-        @depr.deprecate
-        def func():
-            return 42
-
-        func()
+    assert func2() == 42
 
 
 def test_simple_class_deprecation():

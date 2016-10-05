@@ -7,9 +7,6 @@ class Deprecator(object):
     """
     """
     def __init__(self, msg=None, replacement=None):
-        if callable(msg):
-            raise Exception("Can't call with @deprecate without msg or replacement")
-
         assert not (msg and replacement), "can only pass msg or replacement, not both"
         if replacement is not None:
             assert callable(replacement), "Replacement function needs to be a callable as well"
@@ -26,4 +23,8 @@ class Deprecator(object):
         return _deprecate
 
 
-deprecate = Deprecator
+def deprecate(func_or_msg=None, *args, **kwargs):
+    if callable(func_or_msg):
+        return Deprecator()(func_or_msg)
+    else:
+        return Deprecator(*args, **kwargs)
