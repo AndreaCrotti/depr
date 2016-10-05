@@ -1,12 +1,14 @@
-import git
-
 from setuptools import setup, find_packages
 
-version = git.Repo('.').tags[-1].name
+
+def get_version():
+    import git
+    return git.Repo('.').tags[-1].name
+
 package = 'depr'
 
 setup(name=package,
-      version=version,
+      version=get_version(),
       packages=['depr'],
       description="Deprecation decorator",
       author="Andrea Crotti",
