@@ -29,9 +29,9 @@ class Deprecator(object):
 
     def __call__(self, func):
         @functools.wraps(func)
-        def _deprecate():
+        def _deprecate(*args, **kwargs):
             warnings.warn(self.reason, category=DeprecationWarning, stacklevel=2)
-            return func()
+            return func(*args, **kwargs)
 
         return _deprecate
 

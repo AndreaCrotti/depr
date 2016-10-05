@@ -23,6 +23,14 @@ def test_simple_function_deprecation(warn):
     assert warn.call_args[0][0] == "Should not use this anymore"
 
 
+def test_function_with_arguments():
+    @deprecate(reason="Should not use this anymore")
+    def func(a, b):
+        return a + b
+
+    assert func(1, 2) == 3
+
+
 def test_deprecation_no_arguments():
     @deprecate
     def func():
