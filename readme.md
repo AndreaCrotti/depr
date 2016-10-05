@@ -4,4 +4,4 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/AndreaCrotti/depr/badge.svg?branch=master)](https://coveralls.io/github/AndreaCrotti/depr?branch=master)
 
-
+Simple decorator to deprecate functions in your codebase.
