@@ -7,3 +7,5 @@ __pycache__
 /.coverage
 Makefile
 htmlcov/
+dist/
+build/
