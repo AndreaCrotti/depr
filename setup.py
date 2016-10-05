@@ -5,6 +5,19 @@ version = '0.1'
 
 setup(name=package,
       version=version,
-      packages=find_packages(),
+      packages=['depr'],
       description="Deprecation decorator",
-      url='')
+      author="Andrea Crotti",
+      license='BSD',
+      classifiers=[
+          "Development Status :: 3 - Alpha",
+          "License :: OSI Approved :: BSD License",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 2.7",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.3",
+          "Programming Language :: Python :: 3.4",
+          "Programming Language :: Python :: 3.5",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy"],
+      url='https://github.com/AndreaCrotti/depr')
