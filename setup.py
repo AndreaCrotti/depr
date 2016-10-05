@@ -8,6 +8,7 @@ setup(name=package,
       packages=['depr'],
       description="Deprecation decorator",
       author="Andrea Crotti",
+      author_email="andrea.crotti.0@gmail.com",
       license='MIT',
       classifiers=[
           "Development Status :: 3 - Alpha",
