@@ -7,6 +7,10 @@ class Deprecator(object):
     """
     """
     def __init__(self, msg=None, replacement=None):
+        if callable(msg):
+            raise Exception("Can't call with @deprecate without msg or replacement")
+
+        assert not (msg and replacement), "can only pass msg or replacement, not both"
         if replacement is not None:
             assert callable(replacement), "Replacement function needs to be a callable as well"
             self.msg = "Use new function {} instead".format(replacement.__name__)
