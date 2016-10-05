@@ -11,4 +11,4 @@ install: "pip install -r requirements_test.txt"
 script: py.test -v tests.py
 
 after_success:
-    - if [[ $TRAVIS_PYTHON_VERSION != pypy* ]]; then pip install coveralls; fi
+    - if [[ $TRAVIS_PYTHON_VERSION != pypy* ]]; then pip install coveralls && coveralls; fi
