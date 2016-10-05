@@ -4,7 +4,21 @@ import warnings
 
 
 class Deprecator(object):
-    """
+    """Mark a function as deprecated, can be used in these ways
+
+    @deprecate(reason="Changed to a better way")
+    def function():
+        pass
+
+    @deprecate(replacement=other_callable)
+    def function():
+         pass
+
+    or just:
+    @deprecate
+    def function():
+        pass
+
     """
     def __init__(self, reason=None, replacement=None):
         assert not (reason and replacement), "can only pass msg or replacement, not both"
