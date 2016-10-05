@@ -1,13 +1,16 @@
+import git
+
 from setuptools import setup, find_packages
 
+version = git.Repo('.').tags[-1].name
 package = 'depr'
-version = '0.1.6'
 
 setup(name=package,
       version=version,
       packages=['depr'],
       description="Deprecation decorator",
       author="Andrea Crotti",
+      setup_requires=["GitPython>=2.0"],
       author_email="andrea.crotti.0@gmail.com",
       license='MIT',
       classifiers=[
