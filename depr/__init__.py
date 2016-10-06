@@ -2,6 +2,13 @@ import functools
 import warnings
 
 
+def get_version():
+    import git
+    return git.Repo('.').tags[-1].name
+
+__version__ = get_version()
+
+
 class Deprecator(object):
     def __init__(self, reason=None, replacement=None):
         assert not (reason and replacement), "can only pass msg or replacement, not both"
