@@ -7,7 +7,7 @@ import warnings
 #     return git.Repo('.').tags[-1].name
 
 # __version__ = get_version()
-__version__ == '0.1.7'
+__version__ = '0.1.7'
 
 class Deprecator(object):
     def __init__(self, reason=None, replacement=None):
