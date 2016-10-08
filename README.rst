@@ -59,6 +59,10 @@ Deprecate decorator
     :alt: Supported implementations
     :target: https://pypi.python.org/pypi/depr
 
+.. |scrutinizer| image:: https://img.shields.io/scrutinizer/g/AndreaCrotti/depr/master.svg?style=flat
+    :alt: Scrutinizer Status
+    :target: https://scrutinizer-ci.com/g/AndreaCrotti/depr/
+
 
 Installation
 ============
