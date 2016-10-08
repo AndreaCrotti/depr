@@ -1,12 +1,10 @@
-================
-pytest-benchmark
-================
+===================
+Deprecate decorator
+===================
 
 .. list-table::
     :stub-columns: 1
 
-    * - docs
-      - |docs|
     * - tests
       - | |travis| |requires| |coveralls|
         | |scrutinizer| |codacy| |codeclimate|
@@ -57,6 +55,49 @@ pytest-benchmark
     :alt: Supported versions
     :target: https://pypi.python.org/pypi/depr
 
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/depr?style=flat
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/depr.svg?style=flat
     :alt: Supported implementations
     :target: https://pypi.python.org/pypi/depr
+
+
+Installation
+============
+
+::
+
+   pip install depr
+
+
+
+Documentation
+=============
+
+
+Simple decorator to deprecate functions in your codebase.
+
+
+Can be used passing a reason for deprecation:
+
+::
+
+    @deprecate(reason="Changed to a better way")
+    def function():
+        pass
+
+A callable with the new function to use:
+
+::
+
+    @deprecate(replacement=other_callable)
+    def function():
+         pass
+
+
+Or just no options, and it will still raise a DeprecatationWarning using the deprecated function name:
+
+::
+
+    @deprecate
+    def function():
+        pass
+   
