@@ -2,10 +2,14 @@ from setuptools import setup, find_packages
 
 from depr import __version__
 
+def _get_version():
+    with open('VERSION', 'r') as f:
+        return f.read().strip(' \n\rv')
+
 package = 'depr'
 
 setup(name=package,
-      version=__version__,
+      version=_get_version(),
       packages=['depr'],
       description="Deprecation decorator",
       author="Andrea Crotti",
