@@ -105,3 +105,17 @@ Or just no options, and it will still raise a DeprecatationWarning using the dep
     def function():
         pass
    
+Contributing
+============
+
+Contributions and ideas are of course welcome, to do so simply:
+
+- fork this project
+- make some changes branching from master
+- raise a PR to this repository
+- if the PR gets approved add yourself to `CONTRIBUTORS`
+
+Testing
+=======
+
+Use *tox* to run tests for all the supported platforms locally, and you will also get travis to run them for you as soon as you open a PR.
