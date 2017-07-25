@@ -1,5 +1,6 @@
 import functools
 import warnings
+import inspect
 
 
 class Deprecator(object):
@@ -20,7 +21,7 @@ class Deprecator(object):
         return _deprecate
 
 
-def deprecate(function=None, *args, **kwargs):
+def deprecate(to_deprecate=None, *args, **kwargs):
     """Mark a function as deprecated, can be used in these ways
 
     @deprecate(reason="Changed to a better way")
@@ -37,7 +38,11 @@ def deprecate(function=None, *args, **kwargs):
         pass
 
     """
-    if callable(function):
-        return Deprecator()(function)
-    else:
+    if callable(to_deprecate):
+        return Deprecator()(to_deprecate)
+    elif to_deprecate is None or inspect.isclass(to_deprecate):
         return Deprecator(*args, **kwargs)
+    else:
+        # should add some way to warn whenever the object
+        # itself is accessed (possibly using getters/setters?)
+        return to_deprecate
