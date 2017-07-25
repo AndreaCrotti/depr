@@ -63,3 +63,25 @@ def test_suggest_replacement(warn):
     assert old_func() == 1
     assert warn.called
     assert 'new_func' in warn.call_args[0][0]
+
+
+class Simple:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
+
+def test_class_deprecation():
+    s = Simple(a=1, b=2)
+    assert s.a == 1
+
+    SimpleDepr = deprecate(Simple)
+    s_depr = SimpleDepr(a=1, b=2)
+    assert s_depr.a == 1
+
+
+def test_object_deprecation():
+    s = Simple(a=1, b=2)
+    s_depr = deprecate(s)
+    assert s.a == 1
+    assert s_depr.a == 1
