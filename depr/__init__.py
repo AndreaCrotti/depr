@@ -6,17 +6,20 @@ import inspect
 class Deprecator(object):
     def __init__(self, reason=None, replacement=None):
         assert not (reason and replacement), "can only pass msg or replacement, not both"
-        if replacement is not None:
-            assert callable(replacement), "Replacement function needs to be a callable as well"
-            self.message = "Use new function {} instead".format(replacement.__name__)
-        else:
-            self.message = reason or "Call to deprecated function"
+        self.replacement = replacement
+        self.reason = reason
 
-    def __call__(self, func):
-        @functools.wraps(func)
+    def __call__(self, to_deprecate):
+        @functools.wraps(to_deprecate)
         def _deprecate(*args, **kwargs):
-            warnings.warn(self.message, category=DeprecationWarning, stacklevel=2)
-            return func(*args, **kwargs)
+            if self.replacement is not None:
+                assert callable(self.replacement), "Replacement function needs to be a callable as well"
+                message = "Use new function {} instead".format(self.replacement.__name__)
+            else:
+                message = self.reason or "{} is deprecated".format(to_deprecate.__name__)
+
+            warnings.warn(message, category=DeprecationWarning, stacklevel=2)
+            return to_deprecate(*args, **kwargs)
 
         return _deprecate
 

@@ -71,13 +71,17 @@ class Simple:
         self.b = b
 
 
-def test_class_deprecation():
+@mock.patch('warnings.warn')
+def test_class_deprecation(warn):
     s = Simple(a=1, b=2)
     assert s.a == 1
 
     SimpleDepr = deprecate(Simple)
     s_depr = SimpleDepr(a=1, b=2)
     assert s_depr.a == 1
+
+    assert warn.called
+    assert warn.call_args[0][0] == "Simple is deprecated"
 
 
 def test_object_deprecation():
