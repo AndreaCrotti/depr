@@ -1,6 +1,5 @@
 from setuptools import setup, find_packages
 
-from depr import __version__
 
 def _get_version():
     with open('VERSION', 'r') as f:
