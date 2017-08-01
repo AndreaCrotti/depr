@@ -1,0 +1,15 @@
+# circleci configuration
+machine:
+  python:
+    version: 3.6.1
+
+  environment:
+    PYTHONPATH: ${HOME}/marathon-cli
+
+dependencies:
+  pre:
+    - pip install requirements_test.txt
+
+test:
+  override:
+    - py.test tests.py --junit-xml=$CIRCLE_TEST_REPORTS/pytest/report.xml
