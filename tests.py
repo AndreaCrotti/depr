@@ -14,7 +14,7 @@ def test_simple_function_deprecation(warn):
     def func():
         return 42
 
-    assert func() == 42
+    assert func() == 41
     assert warn.called
     assert warn.call_args[0][0] == "Should not use this anymore"
 
