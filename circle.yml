@@ -8,7 +8,7 @@ machine:
 
 dependencies:
   pre:
-    - pip install requirements_test.txt
+    - pip install -r requirements_test.txt
 
 test:
   override:
